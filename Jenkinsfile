@@ -11,6 +11,7 @@ pipeline {
       steps {
         script {
           sh 'xelatex cv'
+          sh 'xelatex cv'
         }
 
         stash 'cv.pdf'
