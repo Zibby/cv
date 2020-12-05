@@ -1,12 +1,6 @@
 pipeline {
   agent any
   stages {
-    stage('Git Clone') {
-      steps {
-        git 'https://github.com/zibby/cv'
-      }
-    }
-
     stage('Build') {
       agent {
         docker {
