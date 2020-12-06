@@ -10,7 +10,7 @@ pipeline {
       }
       steps {
         script {
-          DATE = sh("date '+%d-%m-%Y'") 
+          DATE = sh(returnStdout: true, script: "date '+%d-%m-%Y'").trim() 
           sh "sed -i \"s/__DATE__/${DATE}/g\" cv.tex"
           sh 'xelatex cv'
           sh 'xelatex cv'
