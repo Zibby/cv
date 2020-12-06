@@ -10,6 +10,8 @@ pipeline {
       }
       steps {
         script {
+          
+          sh 'DATE=$(date "+%m-%d-%Y") sed -i "s/__DATE__/$DATE" cv.tex'
           sh 'xelatex cv'
           sh 'xelatex cv'
         }
