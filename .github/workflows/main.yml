@@ -2,15 +2,13 @@ name: Build LaTeX document
 on: [push]
 jobs:
   build_latex:
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
     steps:
       - name: Set up Git repository
         uses: actions/checkout@v2
       - name: datestamp
         run: sed -i "s/__DATE__/${DATE}/g" cv.tex
       - name: Compile LaTeX document
-        uses: dante-ev/latex-action@latest
+        uses: docker://zibby/latex
         with:
-          root_file: cv.tex
-          compiler: xelatex
-          args: -interaction=nonstopmode -shell-escape
+         args: make
