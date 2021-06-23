@@ -12,3 +12,5 @@ jobs:
         uses: dante-ev/latex-action@latest
         with:
           root_file: cv.tex
+          compiler: xelatex
+          args: -interaction=nonstopmode -shell-escape
