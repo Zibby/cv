@@ -7,7 +7,7 @@ jobs:
       - name: Set up Git repository
         uses: actions/checkout@v2
       - name: datestamp
-        run: sed -i "s/__DATE__/${DATE}/g" cv.tex
+        run: sed -i "s/__DATE__/$(date '+%d-%m-%Y')/g" cv.tex
       - name: Compile LaTeX document
         uses: docker://zibby/latex
         with:
