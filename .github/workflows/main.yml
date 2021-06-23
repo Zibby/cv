@@ -12,3 +12,10 @@ jobs:
         uses: docker://zibby/latex
         with:
           args: make
+      - name: Create a Release
+        uses: softprops/action-gh-release@v1
+        with:
+          files: |
+            cv.pdf
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
